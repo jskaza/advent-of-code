@@ -16,4 +16,3 @@ fold <- function(df, axis, fold_at){
 
 fold(coords, instructions$axis[[1]], instructions$point[[1]]) %>%
   n_distinct
-

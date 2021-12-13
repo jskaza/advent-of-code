@@ -14,11 +14,9 @@ fold <- function(df, axis, fold_at){
   df %>% mutate_at(axis, function(z){ifelse(z < fold_at, z, 2*fold_at - z)})
 }
 
-# probably a bettwe way to visualize ¯\_(ツ)_/¯
+# probably a better way to visualize ¯\_(ツ)_/¯
 reduce2(instructions$axis, instructions$point, fold, .init = coords) %>%
   as.data.frame %>%
   distinct %>%
   ggplot(aes(x = x, y = -y)) + 
   geom_point()
-  
-

@@ -29,16 +29,6 @@ func readInts(path string) []int {
 	return ints
 }
 
-func builtInAdapter(sli []int) int {
-	max := sli[0]
-	for i := 1; i < len(sli); i++ {
-		if sli[i] > max {
-			max = sli[i]
-		}
-	}
-	return max + 3
-}
-
 func differencesMap(sli []int) map[int]int {
 	var res = map[int]int{1: 0, 3: 1} //initialize 3 to 1 bc of last step
 	sort.Ints(sli)

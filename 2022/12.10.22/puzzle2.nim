@@ -1,5 +1,4 @@
 import strutils
-import math
 
 let input = splitLines(readFile("input.txt"))
 

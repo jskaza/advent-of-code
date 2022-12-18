@@ -1,6 +1,7 @@
 import strutils
 import json
 import re
+import algorithm
 
 let input = readFile("input.txt")
 
@@ -9,10 +10,7 @@ type
       list1: JsonNode
       list2: JsonNode
 var 
-    tracker: bool
-    newPair: listPair
-    sumIdx: int
-    idx: int
+    packets: seq[string]
 
 let regex = re("(\\d+|\\[\\])")
 
@@ -69,16 +67,28 @@ proc compare(p: listPair): int =
                 return 1
             else:
                 continue
+
 for line in splitLines(input):
     if line == "":
         continue
-    elif tracker:
-        newPair.list2 = parseJson(line)
-        if compare(newPair) >= 0:
-            sumIdx += idx
     else:
-       idx += 1
-       newPair = listPair(list1: parseJson(line))
-    tracker = not tracker
+        packets.add(line)
+# add dividers
+packets.add("[[2]]")
+packets.add("[[6]]")
 
-echo sumIdx
+proc customCmp(list1, list2: string): int =
+    let p = listPair(list1: parseJson(list1), list2: parseJson(list2))
+    if compare(p) == -1: 1
+    else: -1
+packets.sort(customCmp)
+
+var prod = 1
+for i in 0..<len(packets):
+    if $packets[i] == "[[2]]":
+        prod = prod*(i + 1)
+    elif $packets[i] == "[[6]]":
+        prod = prod*(i + 1)
+        break
+echo prod
+  

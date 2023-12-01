@@ -6,3 +6,4 @@ https://adventofcode.com
 - 2020: Go
 - 2021: R
 - 2022: Nim
+- 2023: Python

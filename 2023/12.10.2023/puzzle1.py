@@ -1,4 +1,3 @@
-import networkx as nx
 with open("input.txt", "r") as f:
     lines = f.read().splitlines()
 lines = [list(line) for line in lines]

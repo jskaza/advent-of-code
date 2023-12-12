@@ -11,28 +11,28 @@ def pass_through(row, col, coming_from=None):
             coming_from = "N"
         elif lines[row+1][col] == "L":
             row += 1
-            coming_from = "W"
+            coming_from = "N"
         elif lines[row+1][col] == "J":
             row += 1
-            coming_from = "E"
+            coming_from = "N"
         elif lines[row][col+1] == "-":
             col += 1
             coming_from = "W"
         elif lines[row][col+1] == "7":
             col += 1
-            coming_from = "N"
+            coming_from = "W"
         elif lines[row][col+1] == "J":
             col += 1
-            coming_from = "S"
+            coming_from = "W"
         elif lines[row][col-1] == "-":
             col -= 1
             coming_from = "E"
         elif lines[row][col-1] == "L":
             col -= 1
-            coming_from = "S"
+            coming_from = "E"
         elif lines[row][col-1] == "F":
             col -= 1
-            coming_from = "N"
+            coming_from = "E"
     elif tile == "|":
         if coming_from == "N":
             row += 1

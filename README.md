@@ -7,3 +7,4 @@ https://adventofcode.com
 - 2021: R
 - 2022: Nim
 - 2023: Python
+- 2024: Python
